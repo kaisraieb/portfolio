@@ -1,5 +1,6 @@
 import { HeaderSection } from "@/components/layout/HeaderSection";
-import { ProjectSection } from "./components/layout/ProjectsSection";
+import { ProjectsSection } from "./components/layout/ProjectsSection";
+import { TopHeader } from "./components/layout/TopHeader";
 
 function App() {
   return (
@@ -8,9 +9,10 @@ function App() {
     // </main>
 
     // smooth scroll by section
-    <div className="h-screen snap-y snap-mandatory overflow-y-scroll bg-black text-white my-auto min-h-screen">
+    <div className="min-h-screen bg-black text-white">
+      <TopHeader />
       <HeaderSection />
-      <ProjectSection />
+      <ProjectsSection />
     </div>
   );
 }
