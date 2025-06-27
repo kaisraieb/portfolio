@@ -1,19 +1,17 @@
 import { HeaderSection } from "@/components/layout/HeaderSection";
+import { ProjectSection } from "./components/layout/ProjectsSection";
 
 function App() {
   return (
-    <main className="bg-black text-white my-auto min-h-screen">
-      <HeaderSection />
-    </main>
+    // <main className="">
+
+    // </main>
 
     // smooth scroll by section
-    /*
-    <div className="h-screen snap-y snap-mandatory overflow-scroll">
-      <section className="h-screen snap-start bg-black text-white">Section 1</section>
-      <section className="h-screen snap-start bg-gray-900 text-white">Section 2</section>
-      <section className="h-screen snap-start bg-gray-800 text-white">Section 3</section>
+    <div className="h-screen snap-y snap-mandatory overflow-y-scroll bg-black text-white my-auto min-h-screen">
+      <HeaderSection />
+      <ProjectSection />
     </div>
-    */
   );
 }
 

@@ -1,14 +1,15 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "sonner"; // Assuming 'sonner' is your toast notification library
 
 export function HeaderSection() {
   const [copied, setCopied] = useState(false);
+  const [timeNow, setTimeNow] = useState("");
 
   const handleCopy = () => {
-    const email = "kais@devmail.tn";
+    const email = "kaissraieb@gmail.com";
     navigator.clipboard.writeText(email);
     setCopied(true);
     toast.success("Email copied to clipboard! 📧", {
@@ -18,6 +19,25 @@ export function HeaderSection() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // format date like "H:M:S | DD:MM:AAAA"
+  const formatDateTime = () => {
+    let d = new Date();
+
+    // date
+    let days = d.getDate();
+    let months = d.getMonth();
+    let years = d.getFullYear();
+
+    // time
+    let hours = d.getHours();
+    let minuts = d.getMinutes();
+    let seconds = d.getSeconds();
+
+    // set the time dynamically
+
+    return `${hours}:${minuts}:${seconds} | ${days}/${months}/${years}`;
+  };
+
   useEffect(() => {
     const handleKeyPress = (event: any) => {
       if (event.key === "c" || event.key === "C") {
@@ -25,16 +45,27 @@ export function HeaderSection() {
       }
     };
     document.addEventListener("keydown", handleKeyPress);
+
+    // set time now span in the top bar
+    setInterval(() => {
+      setTimeNow(formatDateTime());
+    });
     return () => {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
 
   return (
-    <section className="w-full flex flex-col items-center justify-center max-w-4xl mx-auto py-16 px-4 text-white min-h-screen">
+    <section className="w-full snap-start flex flex-col items-center justify-center max-w-4xl mx-auto py-16 px-4 text-white min-h-screen">
       {/* Top right - "Est. 2020" */}
-      <div className="absolute top-4 right-4 text-xs text-zinc-500 tracking-widest uppercase">
-        Est. 2020
+      <div className="absolute top-8 px-8 w-full flex items-center justify-between z-999 ">
+        <span className="text-xs text-zinc-500 tracking-widest uppercase">
+          KaisSraieb.DEV
+        </span>
+        <span className="text-xs text-zinc-500 tracking-widest uppercase flex items-center gap-3.5">
+          <Clock size={17} />
+          {timeNow}
+        </span>
       </div>
       <div className="flex flex-col items-center justify-center space-y-4 mb-8">
         <Avatar className="w-24 h-24 border-2 border-zinc-700">
