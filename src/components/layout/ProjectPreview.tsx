@@ -1,7 +1,10 @@
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import type { ProjectPreviewProps } from "@/types/project";
 
-export function ProjectPreview({ project, onClose }) {
+export function ProjectPreview({ project, onClose }: ProjectPreviewProps) {
+  if (!project) return null;
+
   return (
     <Dialog open={!!project} onOpenChange={onClose}>
       <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 overflow-hidden" />

@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Card, CardContent } from "../ui/card";
 import { ProjectPreview } from "./ProjectPreview";
 import { projects } from "@/projectsData";
+import type { Project } from "@/types/project";
 
 export function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const rows = [];
   for (let i = 0; i < projects.length; i += 3) {
