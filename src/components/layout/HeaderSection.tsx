@@ -52,7 +52,8 @@ export function HeaderSection() {
           <p className="text-sm text-gray-400 flex items-center gap-1 sm:justify-start justify-center">
             <Button
               onClick={copyToClipboard}
-              className="ml-1 text-gray-300 hover:text-white transition cursor-pointer flex items-center gap-2"
+              disabled={copied}
+              className={`ml-1 text-gray-300 hover:text-white transition cursor-pointer flex items-center gap-2 select-none`}
             >
               {copied ? <Check size={20} /> : <Copy size={20} />}
               {copied ? "Copied" : "Copy Email"}
