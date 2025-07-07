@@ -14,18 +14,23 @@
 </html>
  -->
 
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Under Maintenance</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
-        background: url('https://images.unsplash.com/photo-1612832021074-dc827a480ce2') no-repeat center center fixed;
-        background-size: cover;
+        background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      }
+
+      .glass {
+        background-color: rgba(20, 20, 20, 0.5);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
 
       @keyframes blink {
@@ -36,28 +41,19 @@
       .cursor-blink {
         animation: blink 1s step-end infinite;
       }
-
-      .glass {
-        background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
     </style>
   </head>
 
-  <body class="min-h-screen flex items-center justify-center font-mono text-green-300">
-    <div class="glass rounded-xl shadow-2xl max-w-2xl w-full mx-4 p-8 border border-green-500/20">
-      <div class="space-y-4">
-        <p class="text-sm text-green-400/80 tracking-widest uppercase">[ terminal boot sequence ]</p>
-        
-        <p><span class="text-pink-400">$</span> Starting Hyprland system...</p>
-        <p><span class="text-blue-400">$</span> Checking connection... <span class="animate-pulse">•••</span></p>
-        <p><span class="text-yellow-400">$</span> 🚧 <span class="text-white">Website is currently</span> <span class="text-red-400">under maintenance</span></p>
-        <p class="text-white">🛠️ We’re rebooting the system. Grab a coffee and come back soon.</p>
-        
-        <p class="text-green-400 mt-6">$ <span class="cursor-blink">█</span></p>
-      </div>
+  <body class="flex items-center justify-center h-screen text-green-300 font-mono">
+    <div class="glass p-8 rounded-xl shadow-2xl max-w-2xl w-full mx-4 border border-green-500/20">
+      <p class="text-green-400 text-sm uppercase tracking-widest mb-4">[ Hyprland Terminal ]</p>
+
+      <p><span class="text-pink-400">$</span> booting system...</p>
+      <p><span class="text-blue-400">$</span> verifying uptime... <span class="animate-pulse">•••</span></p>
+      <p><span class="text-yellow-300">$</span> 🚧 website is <span class="text-red-400">under maintenance</span></p>
+      <p class="text-white">🛠️ we’re upgrading your experience... stay tuned!</p>
+
+      <p class="text-green-400 mt-6">$ <span class="cursor-blink">█</span></p>
     </div>
   </body>
 </html>
